@@ -363,4 +363,4 @@ MigrationBackup/
 FodyWeavers.xsd
 
 
-LearningManagementSystem.Api/appsettings.json
+./LearningManagementSystem.Api/appsettings.json
