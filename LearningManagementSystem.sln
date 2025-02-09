@@ -5,6 +5,10 @@ VisualStudioVersion = 17.12.35707.178 d17.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearningManagementSystem.Api", "LearningManagementSystem.Api\LearningManagementSystem.Api.csproj", "{F51EEBD7-F710-4576-B7A8-593536002B5F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearningManagementSystem.DataBase", "LearningManagementSystem.DataBase\LearningManagementSystem.DataBase.csproj", "{CF72AFD4-2E4B-42AA-B79A-6231D43DC454}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearningManagementSystem.Domain", "LearningManagementSystem.Domain\LearningManagementSystem.Domain.csproj", "{E264571D-0B03-45DF-99E1-5E4D4EBE83FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{F51EEBD7-F710-4576-B7A8-593536002B5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F51EEBD7-F710-4576-B7A8-593536002B5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F51EEBD7-F710-4576-B7A8-593536002B5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF72AFD4-2E4B-42AA-B79A-6231D43DC454}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF72AFD4-2E4B-42AA-B79A-6231D43DC454}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF72AFD4-2E4B-42AA-B79A-6231D43DC454}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF72AFD4-2E4B-42AA-B79A-6231D43DC454}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E264571D-0B03-45DF-99E1-5E4D4EBE83FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E264571D-0B03-45DF-99E1-5E4D4EBE83FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E264571D-0B03-45DF-99E1-5E4D4EBE83FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E264571D-0B03-45DF-99E1-5E4D4EBE83FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
