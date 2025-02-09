@@ -7,13 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Endpoints\Admins\" />
-    <Folder Include="Endpoints\Users\" />
-    <Folder Include="ViewModels\" />
-    <Folder Include="Service\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\LearningManagementSystem.DataBase\LearningManagementSystem.DataBase.csproj" />
   </ItemGroup>
 
