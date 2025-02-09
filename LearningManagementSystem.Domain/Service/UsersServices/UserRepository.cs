@@ -23,7 +23,20 @@ namespace LearningManagementSystem.Domain.Service.UsersServices
 
         public UsersViewModels CreateUser(UsersViewModels user)
         {
-            var userModel = new Users 
+            user.UpdatedDate = null; // Need to amend and take out
+
+            Users userModel = UsersMapping(user);
+
+            _db.Users.Add(userModel);
+            _db.SaveChanges();
+
+            return user;
+        }
+
+        // Can use for instructor and students
+        private static Users UsersMapping(UsersViewModels user)
+        {
+            return new Users
             {
                 UserId = Guid.NewGuid(),
                 Name = user.Name,
@@ -36,13 +49,9 @@ namespace LearningManagementSystem.Domain.Service.UsersServices
                 UpdatedDate = user.UpdatedDate,
                 DeleteFlag = false
             };
-
-            _db.Users.Add(userModel);
-            _db.SaveChanges();
-
-            return user;
         }
     }
 
+    
     
 }
