@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,7 +13,7 @@ public class Users
     [Key]
     public Guid UserId { get; set; } = Guid.NewGuid();
     public string Name { get; set; } = null!;
-    
+
     [EmailAddress]
     public string Email { get; set; } = null!;
 
@@ -22,8 +23,10 @@ public class Users
     public string UserName { get; set; } = null!;
     public string Phone { get; set; } = null!;
     public string Address { get; set; } = null!;
-    public DateTime CreatedDate { get; set; } = DateTime.UtcNow ;
+    [Required]
+    [RegularExpression("Student|Instructor")]
+    public string Role { get; set; } = null!;
+    public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
     public DateTime? UpdatedDate { get; set; }
-    public Boolean DeleteFlag { get; set; } = false;
-
+    public bool DeleteFlag { get; set; } = false;
 }

@@ -2,6 +2,7 @@
 using LearningManagementSystem.DataBase.Migrations;
 using LearningManagementSystem.DataBase.Models;
 using LearningManagementSystem.Domain.ViewModels;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -33,6 +34,56 @@ namespace LearningManagementSystem.Domain.Service.UsersServices
             return user;
         }
 
+        public List<UsersViewModels> GetInstructors()
+        {
+            var model = _db.Users
+                .AsNoTracking()
+                .Where(x => x.Role == "Instructor" && x.DeleteFlag == false)
+                .ToList();
+
+            var userViewModels = model.Select(UsersViewModelsMapping).ToList();
+
+            return userViewModels;
+        }
+
+        public List<UsersViewModels> GetStudents()
+        {
+            var model = _db.Users
+                .AsNoTracking()
+                .Where(x => x.Role == "Student" && x.DeleteFlag == false)
+                .ToList();
+
+            var userViewModels = model.Select(UsersViewModelsMapping).ToList();
+
+            return userViewModels;
+        }
+
+        public List<UsersViewModels> GetInstructor(string id)
+        {
+            var model = _db.Users
+                .AsNoTracking()
+                .Where(x => x.Role == "Instructor" 
+                && x.DeleteFlag == false && x.UserId.ToString() == id) //I have proper reasons why I didn`t use Firstordefault.
+                .ToList();
+
+            var userViewModels = model.Select(UsersViewModelsMapping).ToList();
+
+            return userViewModels;
+        }
+
+        public List<UsersViewModels> GetStudent(string id)
+        {
+            var model = _db.Users
+                .AsNoTracking()
+                .Where(x => x.Role == "Student" 
+                && x.DeleteFlag == false && x.UserId.ToString() == id) //I have proper reasons why I didn`t use Firstordefault.
+                .ToList();
+
+            var userViewModels = model.Select(UsersViewModelsMapping).ToList();
+
+            return userViewModels;
+        }
+
         // Can use for instructor and students
         private static Users UsersMapping(UsersViewModels user)
         {
@@ -45,9 +96,28 @@ namespace LearningManagementSystem.Domain.Service.UsersServices
                 UserName = user.UserName,
                 Phone = user.Phone,
                 Address = user.Address,
+                Role = user.Role,
                 CreatedDate = user.CreatedDate,
                 UpdatedDate = user.UpdatedDate,
                 DeleteFlag = false
+            };
+        }
+
+        private static UsersViewModels UsersViewModelsMapping(Users user)
+        {
+            return new UsersViewModels
+            {
+                //UserId = user.UserId,
+                Name = user.Name,
+                Email = user.Email,
+                PasswordHash = user.PasswordHash,
+                UserName = user.UserName,
+                Phone = user.Phone,
+                Address = user.Address,
+                Role = user.Role,
+                CreatedDate = user.CreatedDate,
+                UpdatedDate = user.UpdatedDate
+                //DeleteFlag = false
             };
         }
     }

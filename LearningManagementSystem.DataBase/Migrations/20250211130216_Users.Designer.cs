@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LearningManagementSystem.DataBase.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250209185326_Users")]
+    [Migration("20250211130216_Users")]
     partial class Users
     {
         /// <inheritdoc />
@@ -55,6 +55,10 @@ namespace LearningManagementSystem.DataBase.Migrations
                         .HasColumnType("nvarchar(16)");
 
                     b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Role")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

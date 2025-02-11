@@ -10,5 +10,13 @@ namespace LearningManagementSystem.Domain.Service.UsersServices
     public interface IUserRepository
     {
         UsersViewModels CreateUser(UsersViewModels user);
+
+        List<UsersViewModels> GetStudents();
+
+        List<UsersViewModels> GetInstructors();
+
+        List<UsersViewModels> GetStudent(string id);
+
+        List<UsersViewModels> GetInstructor(string id);
     }
 }
